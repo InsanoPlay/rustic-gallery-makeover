@@ -921,6 +921,30 @@
                 });
 
                 syncGallery(false);
+
+                // Autoplay: rotaciona automaticamente a cada 4s
+                let galleryAutoplayTimer = null;
+                const startGalleryAutoplay = () => {
+                    if (galleryBaseSlides.length <= 1) return;
+                    stopGalleryAutoplay();
+                    galleryAutoplayTimer = setInterval(() => {
+                        if (!galleryDragging && !document.hidden) goGallery(1);
+                    }, 4000);
+                };
+                const stopGalleryAutoplay = () => {
+                    if (galleryAutoplayTimer) {
+                        clearInterval(galleryAutoplayTimer);
+                        galleryAutoplayTimer = null;
+                    }
+                };
+                galleryCarousel.addEventListener('mouseenter', stopGalleryAutoplay);
+                galleryCarousel.addEventListener('mouseleave', startGalleryAutoplay);
+                galleryViewport.addEventListener('pointerdown', stopGalleryAutoplay);
+                galleryViewport.addEventListener('pointerup', startGalleryAutoplay);
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) stopGalleryAutoplay(); else startGalleryAutoplay();
+                });
+                startGalleryAutoplay();
             }
         };
 
