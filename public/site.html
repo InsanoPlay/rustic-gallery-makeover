@@ -811,22 +811,22 @@
                     gallerySlides.forEach((slide, index) => {
                         const diff = index - galleryIndex;
                         const abs = Math.abs(diff);
-                        const rotate = abs === 0 ? 0 : diff < 0 ? -7.5 : 7.5;
-                        const scale = abs === 0 ? 1.08 : abs === 1 ? (mobile ? 0.9 : 0.82) : 0.72;
-                        const shiftY = abs === 0 ? -4 : abs === 1 ? 18 : 36;
+                        const scale = abs === 0 ? 1.06 : abs === 1 ? (mobile ? 0.9 : 0.84) : 0.74;
                         const opacity = abs === 0 ? 1 : abs === 1 ? 0.34 : 0.08;
                         const frame = slide.querySelector('[data-gallery-frame]');
 
-                        slide.style.transform = `translate3d(0, ${shiftY}px, 0) scale(${scale}) rotate(${rotate}deg)`;
+                        slide.style.transform = `translate3d(0, 0, 0) scale(${scale})`;
                         slide.style.opacity = abs <= 2 ? String(opacity) : '0';
                         slide.style.filter = abs === 0 ? 'brightness(1) saturate(1.02)' : abs === 1 ? 'brightness(0.34) saturate(0.65)' : 'brightness(0.15) saturate(0.4)';
                         slide.style.pointerEvents = abs === 0 ? 'auto' : 'none';
                         slide.style.zIndex = abs === 0 ? '4' : abs === 1 ? '3' : '2';
 
                         if (frame) {
-                            frame.style.borderColor = abs === 0 ? 'rgba(141, 104, 72, 0.74)' : 'rgba(109, 81, 57, 0.34)';
-                            frame.style.backgroundColor = abs === 0 ? 'rgba(7, 7, 7, 0.82)' : 'rgba(7, 7, 7, 0.56)';
-                            frame.style.boxShadow = abs === 0 ? '0 16px 34px rgba(0, 0, 0, 0.24)' : abs === 1 ? '0 8px 18px rgba(0, 0, 0, 0.14)' : 'none';
+                            frame.style.borderColor = abs === 0 ? 'rgba(180, 150, 120, 0.35)' : 'rgba(109, 81, 57, 0.18)';
+                            frame.style.backgroundColor = abs === 0 ? 'rgba(7, 7, 7, 0.55)' : 'rgba(7, 7, 7, 0.4)';
+                            frame.style.boxShadow = abs === 0
+                                ? '0 0 60px 8px rgba(255, 240, 220, 0.18), 0 0 120px 24px rgba(255, 220, 180, 0.10), 0 18px 40px rgba(0,0,0,0.45)'
+                                : abs === 1 ? '0 8px 18px rgba(0, 0, 0, 0.18)' : 'none';
                         }
                     });
 
