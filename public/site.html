@@ -115,27 +115,24 @@
             isolation: isolate;
         }
         .gallery-stage__wall {
-            background-image: url('/wood-wall.jpg');
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.86), rgba(0,0,0,0.86)),
+                url('/wood-wall.jpg');
+            background-size: cover, cover;
+            background-position: center center, center center;
+            background-repeat: no-repeat, no-repeat;
             opacity: 1;
         }
         .gallery-stage__floor {
-            background:
-                linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(7, 6, 5, 0.16) 18%, rgba(7, 6, 5, 0.86) 100%),
-                repeating-linear-gradient(90deg, rgba(95, 67, 45, 0.42) 0 8.5%, rgba(44, 31, 23, 0.72) 8.5% 17%, rgba(23, 17, 14, 0.9) 17% 25.5%);
-            border-top: 1px solid rgba(136, 96, 61, 0.26);
-            box-shadow: inset 0 16px 42px rgba(0, 0, 0, 0.48);
+            display: none;
         }
         .gallery-stage__veil {
             background:
-                linear-gradient(180deg, #131313 0%, rgba(19,19,19,0.92) 5%, rgba(19,19,19,0.35) 14%, rgba(19,19,19,0) 26%, rgba(19,19,19,0) 74%, rgba(19,19,19,0.35) 86%, rgba(19,19,19,0.92) 95%, #131313 100%),
-                radial-gradient(ellipse at 50% 56%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55) 88%);
+                linear-gradient(180deg, #000 0%, rgba(0,0,0,0.95) 6%, rgba(0,0,0,0.55) 14%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 74%, rgba(0,0,0,0.55) 86%, rgba(0,0,0,0.95) 94%, #000 100%);
         }
         .gallery-stage__spot {
-            background: radial-gradient(circle at center, rgba(255, 190, 109, 0.18), rgba(255, 190, 109, 0) 58%);
-            filter: blur(2px);
+            background: radial-gradient(circle at center, rgba(255, 190, 109, 0.14), rgba(255, 190, 109, 0) 62%);
+            filter: blur(3px);
         }
         .gallery-lantern {
             position: relative;
@@ -433,8 +430,8 @@
 </a>
 </div>
 <div class="relative mt-8 md:mt-10" data-gallery-carousel>
-<button class="hidden md:flex absolute left-[18.8%] top-[51%] z-40 h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#c9a17a]/75 bg-black/28 text-[#f7e7d2] shadow-[0_10px_22px_rgba(0,0,0,0.26)] backdrop-blur-sm transition-all hover:bg-black/42" type="button" data-gallery-prev aria-label="Foto anterior"><span class="material-symbols-outlined text-[2rem] leading-none">chevron_left</span></button>
-<button class="hidden md:flex absolute right-[18.8%] top-[51%] z-40 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#c9a17a]/75 bg-black/28 text-[#f7e7d2] shadow-[0_10px_22px_rgba(0,0,0,0.26)] backdrop-blur-sm transition-all hover:bg-black/42 h-14 w-14" type="button" data-gallery-next aria-label="Proxima foto"><span class="material-symbols-outlined text-[2rem] leading-none">chevron_right</span></button>
+<button class="hidden md:flex absolute left-[32%] top-1/2 z-40 h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white/85 shadow-[0_8px_18px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all hover:bg-black/60 hover:text-white" type="button" data-gallery-prev aria-label="Foto anterior"><span class="material-symbols-outlined text-[1.75rem] leading-none">chevron_left</span></button>
+<button class="hidden md:flex absolute right-[32%] top-1/2 z-40 h-12 w-12 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white/85 shadow-[0_8px_18px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all hover:bg-black/60 hover:text-white" type="button" data-gallery-next aria-label="Proxima foto"><span class="material-symbols-outlined text-[1.75rem] leading-none">chevron_right</span></button>
 <div class="relative h-[280px] overflow-hidden sm:h-[320px] md:h-[420px] lg:h-[480px]" data-gallery-viewport>
 <div class="absolute left-0 top-0 flex h-full items-center gap-3 px-2 md:gap-8 md:px-10" data-gallery-track>
 <article class="gallery-slide relative flex h-full w-[78vw] max-w-[540px] flex-none items-center justify-center sm:w-[68vw] md:w-[30vw] lg:w-[29vw]" data-gallery-slide>
@@ -814,22 +811,22 @@
                     gallerySlides.forEach((slide, index) => {
                         const diff = index - galleryIndex;
                         const abs = Math.abs(diff);
-                        const rotate = abs === 0 ? 0 : diff < 0 ? -7.5 : 7.5;
-                        const scale = abs === 0 ? 1.08 : abs === 1 ? (mobile ? 0.9 : 0.82) : 0.72;
-                        const shiftY = abs === 0 ? -4 : abs === 1 ? 18 : 36;
+                        const scale = abs === 0 ? 1.06 : abs === 1 ? (mobile ? 0.9 : 0.84) : 0.74;
                         const opacity = abs === 0 ? 1 : abs === 1 ? 0.34 : 0.08;
                         const frame = slide.querySelector('[data-gallery-frame]');
 
-                        slide.style.transform = `translate3d(0, ${shiftY}px, 0) scale(${scale}) rotate(${rotate}deg)`;
+                        slide.style.transform = `translate3d(0, 0, 0) scale(${scale})`;
                         slide.style.opacity = abs <= 2 ? String(opacity) : '0';
                         slide.style.filter = abs === 0 ? 'brightness(1) saturate(1.02)' : abs === 1 ? 'brightness(0.34) saturate(0.65)' : 'brightness(0.15) saturate(0.4)';
                         slide.style.pointerEvents = abs === 0 ? 'auto' : 'none';
                         slide.style.zIndex = abs === 0 ? '4' : abs === 1 ? '3' : '2';
 
                         if (frame) {
-                            frame.style.borderColor = abs === 0 ? 'rgba(141, 104, 72, 0.74)' : 'rgba(109, 81, 57, 0.34)';
-                            frame.style.backgroundColor = abs === 0 ? 'rgba(7, 7, 7, 0.82)' : 'rgba(7, 7, 7, 0.56)';
-                            frame.style.boxShadow = abs === 0 ? '0 16px 34px rgba(0, 0, 0, 0.24)' : abs === 1 ? '0 8px 18px rgba(0, 0, 0, 0.14)' : 'none';
+                            frame.style.borderColor = abs === 0 ? 'rgba(180, 150, 120, 0.35)' : 'rgba(109, 81, 57, 0.18)';
+                            frame.style.backgroundColor = abs === 0 ? 'rgba(7, 7, 7, 0.55)' : 'rgba(7, 7, 7, 0.4)';
+                            frame.style.boxShadow = abs === 0
+                                ? '0 0 60px 8px rgba(255, 240, 220, 0.18), 0 0 120px 24px rgba(255, 220, 180, 0.10), 0 18px 40px rgba(0,0,0,0.45)'
+                                : abs === 1 ? '0 8px 18px rgba(0, 0, 0, 0.18)' : 'none';
                         }
                     });
 
