@@ -116,7 +116,7 @@
         }
         .gallery-stage__wall {
             background-image:
-                linear-gradient(rgba(0,0,0,0.86), rgba(0,0,0,0.86)),
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
                 url('/wood-wall.jpg');
             background-size: cover, cover;
             background-position: center center, center center;
@@ -124,15 +124,34 @@
             opacity: 1;
         }
         .gallery-stage__floor {
-            display: none;
+            display: block;
+            pointer-events: none;
+            background-image:
+                linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 22%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.85) 100%),
+                repeating-linear-gradient(90deg,
+                    #2a1a10 0px, #2a1a10 88px,
+                    #0d0805 88px, #0d0805 92px,
+                    #3a2415 92px, #3a2415 180px,
+                    #0d0805 180px, #0d0805 184px),
+                linear-gradient(180deg, #1a0f08 0%, #0a0604 100%);
+            background-size: cover, auto 100%, cover;
+            box-shadow: inset 0 14px 28px rgba(0,0,0,0.85), inset 0 -8px 22px rgba(0,0,0,0.9);
+            border-top: 1px solid rgba(120, 82, 52, 0.35);
+        }
+        .gallery-stage__floor::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 14px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
         }
         .gallery-stage__veil {
             background:
-                linear-gradient(180deg, #000 0%, rgba(0,0,0,0.95) 6%, rgba(0,0,0,0.55) 14%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 74%, rgba(0,0,0,0.55) 86%, rgba(0,0,0,0.95) 94%, #000 100%);
+                linear-gradient(180deg, #000 0%, rgba(0,0,0,0.92) 5%, rgba(0,0,0,0.4) 13%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.45) 84%, rgba(0,0,0,0.9) 94%, #000 100%);
         }
         .gallery-stage__spot {
-            background: radial-gradient(circle at center, rgba(255, 190, 109, 0.14), rgba(255, 190, 109, 0) 62%);
-            filter: blur(3px);
+            background: radial-gradient(circle at center, rgba(255, 190, 109, 0.05), rgba(255, 190, 109, 0) 62%);
+            filter: blur(4px);
         }
         .gallery-lantern {
             position: relative;
@@ -407,7 +426,7 @@
 <section class="bg-surface py-0" id="galeria">
 <div class="gallery-stage">
 <div class="gallery-stage__wall absolute inset-0"></div>
-<div class="gallery-stage__floor absolute inset-x-0 bottom-0 h-[41%]"></div>
+<div class="gallery-stage__floor absolute inset-x-0 bottom-0 h-[18%] z-[5]"></div>
 <div class="gallery-stage__veil absolute inset-0 z-10"></div>
 <div class="gallery-stage__spot absolute left-1/2 top-[19%] z-10 h-[16rem] w-[38rem] -translate-x-1/2 md:h-[18rem] md:w-[48rem]"></div>
 <div class="pointer-events-none absolute inset-x-0 top-0 z-20 flex w-full items-start justify-between px-5 pt-8 md:px-16 md:pt-4 lg:px-24">
@@ -435,35 +454,35 @@
 <div class="relative h-[280px] overflow-hidden sm:h-[320px] md:h-[420px] lg:h-[480px]" data-gallery-viewport>
 <div class="absolute left-0 top-0 flex h-full items-center gap-3 px-2 md:gap-8 md:px-10" data-gallery-track>
 <article class="gallery-slide relative flex h-full w-[78vw] max-w-[540px] flex-none items-center justify-center sm:w-[68vw] md:w-[30vw] lg:w-[29vw]" data-gallery-slide>
-<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] border border-[#6c5039]/55 bg-black/68 p-[10px]" data-gallery-frame>
+<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] bg-black/40 p-[10px]" data-gallery-frame>
 <div class="relative aspect-[16/10] overflow-hidden rounded-[1.45rem]">
 <img alt="Lucas Matias se apresentando em um palco iluminado em azul com atmosfera cinematografica." class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxv4XRuLxTjdkyRdEbyd0TkGsm4F14GmFG9fvcNLoh2jutwndTQTuYWvR3ab6607Jj-5I140U6zJR9XDP2rUvJfbtn_CyuJ4Hu3fnFv4kK79PgXn0poSDQbyWkrUVua6vE68V-10vBPNwliaqfKi3KeP3q4gA9STAzhiAohiLorj91IDyWyYgvY_7vJQ1a9WnpghVAAJJCUpYgRQIcsto41gMKGHLTRkz039TjQvt9mRzRNgB4KZ8S2FNYxJ2smEQ2pcDhlLzy8cGK"/>
 </div>
 </figure>
 </article>
 <article class="gallery-slide relative flex h-full w-[78vw] max-w-[540px] flex-none items-center justify-center sm:w-[68vw] md:w-[30vw] lg:w-[29vw]" data-gallery-slide>
-<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] border border-[#6c5039]/55 bg-black/68 p-[10px]" data-gallery-frame>
+<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] bg-black/40 p-[10px]" data-gallery-frame>
 <div class="relative aspect-[16/10] overflow-hidden rounded-[1.45rem]">
 <img alt="Show sertanejo com luzes azuis e atmosfera intensa em uma casa noturna." class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxv4XRuLxTjdkyRdEbyd0TkGsm4F14GmFG9fvcNLoh2jutwndTQTuYWvR3ab6607Jj-5I140U6zJR9XDP2rUvJfbtn_CyuJ4Hu3fnFv4kK79PgXn0poSDQbyWkrUVua6vE68V-10vBPNwliaqfKi3KeP3q4gA9STAzhiAohiLorj91IDyWyYgvY_7vJQ1a9WnpghVAAJJCUpYgRQIcsto41gMKGHLTRkz039TjQvt9mRzRNgB4KZ8S2FNYxJ2smEQ2pcDhlLzy8cGK"/>
 </div>
 </figure>
 </article>
 <article class="gallery-slide relative flex h-full w-[78vw] max-w-[540px] flex-none items-center justify-center sm:w-[68vw] md:w-[30vw] lg:w-[29vw]" data-gallery-slide>
-<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] border border-[#6c5039]/55 bg-black/68 p-[10px]" data-gallery-frame>
+<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] bg-black/40 p-[10px]" data-gallery-frame>
 <div class="relative aspect-[16/10] overflow-hidden rounded-[1.45rem]">
 <img alt="Palco principal com iluminacao azul e identidade visual de show sertanejo." class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxv4XRuLxTjdkyRdEbyd0TkGsm4F14GmFG9fvcNLoh2jutwndTQTuYWvR3ab6607Jj-5I140U6zJR9XDP2rUvJfbtn_CyuJ4Hu3fnFv4kK79PgXn0poSDQbyWkrUVua6vE68V-10vBPNwliaqfKi3KeP3q4gA9STAzhiAohiLorj91IDyWyYgvY_7vJQ1a9WnpghVAAJJCUpYgRQIcsto41gMKGHLTRkz039TjQvt9mRzRNgB4KZ8S2FNYxJ2smEQ2pcDhlLzy8cGK"/>
 </div>
 </figure>
 </article>
 <article class="gallery-slide relative flex h-full w-[78vw] max-w-[540px] flex-none items-center justify-center sm:w-[68vw] md:w-[30vw] lg:w-[29vw]" data-gallery-slide>
-<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] border border-[#6c5039]/55 bg-black/68 p-[10px]" data-gallery-frame>
+<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] bg-black/40 p-[10px]" data-gallery-frame>
 <div class="relative aspect-[16/10] overflow-hidden rounded-[1.45rem]">
 <img alt="Foto de show com clima intimista e iluminacao azul em um palco escuro." class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxv4XRuLxTjdkyRdEbyd0TkGsm4F14GmFG9fvcNLoh2jutwndTQTuYWvR3ab6607Jj-5I140U6zJR9XDP2rUvJfbtn_CyuJ4Hu3fnFv4kK79PgXn0poSDQbyWkrUVua6vE68V-10vBPNwliaqfKi3KeP3q4gA9STAzhiAohiLorj91IDyWyYgvY_7vJQ1a9WnpghVAAJJCUpYgRQIcsto41gMKGHLTRkz039TjQvt9mRzRNgB4KZ8S2FNYxJ2smEQ2pcDhlLzy8cGK"/>
 </div>
 </figure>
 </article>
 <article class="gallery-slide relative flex h-full w-[78vw] max-w-[540px] flex-none items-center justify-center sm:w-[68vw] md:w-[30vw] lg:w-[29vw]" data-gallery-slide>
-<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] border border-[#6c5039]/55 bg-black/68 p-[10px]" data-gallery-frame>
+<figure class="gallery-frame relative w-full overflow-hidden rounded-[2rem] bg-black/40 p-[10px]" data-gallery-frame>
 <div class="relative aspect-[16/10] overflow-hidden rounded-[1.45rem]">
 <img alt="Performance ao vivo de Lucas Matias com luzes azuis e fumaca leve." class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxv4XRuLxTjdkyRdEbyd0TkGsm4F14GmFG9fvcNLoh2jutwndTQTuYWvR3ab6607Jj-5I140U6zJR9XDP2rUvJfbtn_CyuJ4Hu3fnFv4kK79PgXn0poSDQbyWkrUVua6vE68V-10vBPNwliaqfKi3KeP3q4gA9STAzhiAohiLorj91IDyWyYgvY_7vJQ1a9WnpghVAAJJCUpYgRQIcsto41gMKGHLTRkz039TjQvt9mRzRNgB4KZ8S2FNYxJ2smEQ2pcDhlLzy8cGK"/>
 </div>
@@ -822,10 +841,10 @@
                         slide.style.zIndex = abs === 0 ? '4' : abs === 1 ? '3' : '2';
 
                         if (frame) {
-                            frame.style.borderColor = abs === 0 ? 'rgba(180, 150, 120, 0.35)' : 'rgba(109, 81, 57, 0.18)';
+                            frame.style.borderColor = 'transparent';
                             frame.style.backgroundColor = abs === 0 ? 'rgba(7, 7, 7, 0.55)' : 'rgba(7, 7, 7, 0.4)';
                             frame.style.boxShadow = abs === 0
-                                ? '0 0 60px 8px rgba(255, 240, 220, 0.18), 0 0 120px 24px rgba(255, 220, 180, 0.10), 0 18px 40px rgba(0,0,0,0.45)'
+                                ? '0 18px 40px rgba(0,0,0,0.55), 0 0 28px rgba(255, 200, 140, 0.04)'
                                 : abs === 1 ? '0 8px 18px rgba(0, 0, 0, 0.18)' : 'none';
                         }
                     });
