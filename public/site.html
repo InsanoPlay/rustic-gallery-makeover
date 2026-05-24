@@ -841,10 +841,10 @@
                         slide.style.zIndex = abs === 0 ? '4' : abs === 1 ? '3' : '2';
 
                         if (frame) {
-                            frame.style.borderColor = abs === 0 ? 'rgba(180, 150, 120, 0.35)' : 'rgba(109, 81, 57, 0.18)';
+                            frame.style.borderColor = 'transparent';
                             frame.style.backgroundColor = abs === 0 ? 'rgba(7, 7, 7, 0.55)' : 'rgba(7, 7, 7, 0.4)';
                             frame.style.boxShadow = abs === 0
-                                ? '0 0 60px 8px rgba(255, 240, 220, 0.18), 0 0 120px 24px rgba(255, 220, 180, 0.10), 0 18px 40px rgba(0,0,0,0.45)'
+                                ? '0 18px 40px rgba(0,0,0,0.55), 0 0 28px rgba(255, 200, 140, 0.04)'
                                 : abs === 1 ? '0 8px 18px rgba(0, 0, 0, 0.18)' : 'none';
                         }
                     });
