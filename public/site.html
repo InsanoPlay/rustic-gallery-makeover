@@ -116,7 +116,7 @@
         }
         .gallery-stage__wall {
             background-image:
-                linear-gradient(rgba(0,0,0,0.86), rgba(0,0,0,0.86)),
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
                 url('/wood-wall.jpg');
             background-size: cover, cover;
             background-position: center center, center center;
@@ -124,15 +124,34 @@
             opacity: 1;
         }
         .gallery-stage__floor {
-            display: none;
+            display: block;
+            pointer-events: none;
+            background-image:
+                linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 22%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.85) 100%),
+                repeating-linear-gradient(90deg,
+                    #2a1a10 0px, #2a1a10 88px,
+                    #0d0805 88px, #0d0805 92px,
+                    #3a2415 92px, #3a2415 180px,
+                    #0d0805 180px, #0d0805 184px),
+                linear-gradient(180deg, #1a0f08 0%, #0a0604 100%);
+            background-size: cover, auto 100%, cover;
+            box-shadow: inset 0 14px 28px rgba(0,0,0,0.85), inset 0 -8px 22px rgba(0,0,0,0.9);
+            border-top: 1px solid rgba(120, 82, 52, 0.35);
+        }
+        .gallery-stage__floor::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 14px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
         }
         .gallery-stage__veil {
             background:
-                linear-gradient(180deg, #000 0%, rgba(0,0,0,0.95) 6%, rgba(0,0,0,0.55) 14%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 74%, rgba(0,0,0,0.55) 86%, rgba(0,0,0,0.95) 94%, #000 100%);
+                linear-gradient(180deg, #000 0%, rgba(0,0,0,0.92) 5%, rgba(0,0,0,0.4) 13%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.45) 84%, rgba(0,0,0,0.9) 94%, #000 100%);
         }
         .gallery-stage__spot {
-            background: radial-gradient(circle at center, rgba(255, 190, 109, 0.14), rgba(255, 190, 109, 0) 62%);
-            filter: blur(3px);
+            background: radial-gradient(circle at center, rgba(255, 190, 109, 0.05), rgba(255, 190, 109, 0) 62%);
+            filter: blur(4px);
         }
         .gallery-lantern {
             position: relative;
