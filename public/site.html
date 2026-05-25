@@ -679,8 +679,8 @@ Ver Mais no Instagram
             agendaList.innerHTML = events.map((event) => {
                 const startValue = event?.start?.dateTime || event?.start?.date;
                 const date = startValue ? new Date(startValue) : new Date();
-                const title = event?.summary || 'Show confirmado';
-                const location = event?.location || 'Local a confirmar';
+                const title = (event?.summary && String(event.summary).trim()) || 'Show';
+                const location = (event?.location && String(event.location).trim()) || 'Local a confirmar';
                 const buttonUrl = extractTicketUrl(event);
 
                 return `
